@@ -1,4 +1,4 @@
-#include "displayapp/screens/WatchFaceDigital.h"
+#include "displayapp/screens/WatchFaceSJ.h"
 
 #include <lvgl/lvgl.h>
 #include <cstdio>
@@ -16,7 +16,7 @@
 
 using namespace Pinetime::Applications::Screens;
 
-WatchFaceDigital::WatchFaceDigital(Controllers::DateTime& dateTimeController,
+WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
                                    const Controllers::Battery& batteryController,
                                    const Controllers::Ble& bleController,
                                    const Controllers::AlarmController& alarmController,
@@ -90,12 +90,12 @@ WatchFaceDigital::WatchFaceDigital(Controllers::DateTime& dateTimeController,
   Refresh();
 }
 
-WatchFaceDigital::~WatchFaceDigital() {
+WatchFaceSJ::~WatchFaceSJ() {
   lv_task_del(taskRefresh);
   lv_obj_clean(lv_scr_act());
 }
 
-void WatchFaceDigital::Refresh() {
+void WatchFaceSJ::Refresh() {
   statusIcons.Update();
 
   notificationState = notificationManager.AreNewNotificationsAvailable();
