@@ -34,9 +34,9 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
     weatherService {weatherService},
     statusIcons(batteryController, bleController, alarmController) {
 		
-	Background = lv_img_create(lv_scr_act(), nullptr);
-  	lv_img_set_src(Background, "F:/images/bitmap.bin");
-  	lv_obj_set_pos(Background, 0, 0);
+  lv_obj_t * bitmap = lv_img_create(lv_scr_act(), nullptr);
+  lv_img_set_src(bitmap, "F:/images/bitmap.bin");
+  lv_obj_set_pos(bitmap, 0, 0);
 
   statusIcons.Create();
 
