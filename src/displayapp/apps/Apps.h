@@ -50,7 +50,6 @@ namespace Pinetime {
       Analog,
       PineTimeStyle,
       Terminal,
-      Infineat,
       CasioStyleG7710,
       Demonica,
     };
@@ -73,7 +72,7 @@ namespace Pinetime {
       static constexpr size_t Count = sizeof...(Ws);
     };
 
-    using UserWatchFaceTypes = WatchFaceTypeList<WatchFace::Digital, WatchFace::Analog, WatchFace::PineTimeStyle, WatchFace::Terminal, WatchFace::Infineat, WatchFace::CasioStyleG7710, WatchFace::Demonica>;
+    using UserWatchFaceTypes = WatchFaceTypeList<WatchFace::Digital, WatchFace::Analog, WatchFace::PineTimeStyle, WatchFace::Terminal, WatchFace::CasioStyleG7710, WatchFace::Demonica>;
 
     static_assert(UserWatchFaceTypes::Count >= 1);
   }
