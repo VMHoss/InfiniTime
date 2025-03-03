@@ -26,9 +26,9 @@ namespace Pinetime {
   namespace Applications {
     namespace Screens {
 
-      class WatchFaceDigital : public Screen {
+      class WatchFaceSJ : public Screen {
       public:
-        WatchFaceDigital(Controllers::DateTime& dateTimeController,
+        WatchFaceSJ(Controllers::DateTime& dateTimeController,
                          const Controllers::Battery& batteryController,
                          const Controllers::Ble& bleController,
                          const Controllers::AlarmController& alarmController,
@@ -37,7 +37,7 @@ namespace Pinetime {
                          Controllers::HeartRateController& heartRateController,
                          Controllers::MotionController& motionController,
                          Controllers::SimpleWeatherService& weather);
-        ~WatchFaceDigital() override;
+        ~WatchFaceSJ() override;
 
         void Refresh() override;
 
@@ -78,12 +78,12 @@ namespace Pinetime {
     }
 
     template <>
-    struct WatchFaceTraits<WatchFace::Digital> {
-      static constexpr WatchFace watchFace = WatchFace::Digital;
-      static constexpr const char* name = "Digital face";
+    struct WatchFaceTraits<WatchFace::Demonica> {
+      static constexpr WatchFace watchFace = WatchFace::Demonica;
+      static constexpr const char* name = "Demonica";
 
       static Screens::Screen* Create(AppControllers& controllers) {
-        return new Screens::WatchFaceDigital(controllers.dateTimeController,
+        return new Screens::WatchFaceSJ(controllers.dateTimeController,
                                              controllers.batteryController,
                                              controllers.bleController,
                                              controllers.alarmController,
