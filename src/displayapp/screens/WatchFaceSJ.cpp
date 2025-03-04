@@ -17,14 +17,15 @@
 using namespace Pinetime::Applications::Screens;
 
 WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
-                                   const Controllers::Battery& batteryController,
-                                   const Controllers::Ble& bleController,
-                                   const Controllers::AlarmController& alarmController,
-                                   Controllers::NotificationManager& notificationManager,
-                                   Controllers::Settings& settingsController,
-                                   Controllers::HeartRateController& heartRateController,
-                                   Controllers::MotionController& motionController,
-                                   Controllers::SimpleWeatherService& weatherService)
+                         const Controllers::Battery& batteryController,
+                         const Controllers::Ble& bleController,
+                         const Controllers::AlarmController& alarmController,
+                         Controllers::NotificationManager& notificationManager,
+                         Controllers::Settings& settingsController,
+                         Controllers::HeartRateController& heartRateController,
+                         Controllers::MotionController& motionController,
+                         Controllers::FS& filesystem,
+                         Controllers::SimpleWeatherService& weatherService)
   : currentDateTime {{}},
     dateTimeController {dateTimeController},
     notificationManager {notificationManager},
@@ -33,6 +34,13 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
     motionController {motionController},
     weatherService {weatherService},
     statusIcons(batteryController, bleController, alarmController) {
+		
+  lfs_file f = {};
+  lv_font_t * font_halant = nullptr;
+  if (filesystem.FileOpen(&f, "/fonts/halant.bin", LFS_O_RDONLY) >= 0) {
+      filesystem.FileClose(&f);
+      font_halant = lv_font_load("F:/fonts/halant.bin");
+  }
 		
   lv_obj_t * bitmap = lv_img_create(lv_scr_act(), nullptr);
   lv_img_set_src(bitmap, "F:/images/bitmap.bin");
@@ -68,7 +76,7 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
 		
 
   label_time = lv_label_create(lv_scr_act(), nullptr);
-  lv_obj_set_style_local_text_font(label_time, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, &jetbrains_mono_extrabold_compressed);
+  lv_obj_set_style_local_text_font(label_time, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, font_halant);
 
   lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, 0);
 
