@@ -11,6 +11,18 @@
       "format": "bin",
       "target_path": "/fonts/"
    },
+   "halant" : {
+      "sources": [
+         {
+            "file": "fonts/Halant.otf",
+            "symbols": "0123456789:/APMonTueWdhFriSat "
+         }
+      ],
+      "bpp": 1,
+      "size": 100,
+      "format": "bin",
+      "target_path": "/fonts/"
+   },
    "bebas" : {
       "sources": [
          {
