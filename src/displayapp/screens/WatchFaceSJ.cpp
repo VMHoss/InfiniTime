@@ -72,7 +72,6 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
   lv_obj_set_style_local_text_color(label_time, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x28ACF0));
 
   lv_obj_align_origo(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, 80);
-  lv_obj_set_auto_realign(label_time, true);
 
   label_time_ampm = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(label_time_ampm, "");
@@ -135,10 +134,10 @@ void WatchFaceSJ::Refresh() {
       }
       lv_label_set_text(label_time_ampm, ampmChar);
       lv_label_set_text_fmt(label_time, "%2d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, 0);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, 80);
     } else {
       lv_label_set_text_fmt(label_time, "%02d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, 80);
     }
 
     currentDate = std::chrono::time_point_cast<std::chrono::days>(currentDateTime.Get());
