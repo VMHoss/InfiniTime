@@ -40,7 +40,6 @@ namespace Pinetime {
         ~WatchFaceSJ() override;
 
         void Refresh() override;
-        
 
       private:
         uint8_t displayedHour = -1;
@@ -92,7 +91,6 @@ namespace Pinetime {
                                              controllers.settingsController,
                                              controllers.heartRateController,
                                              controllers.motionController,
-                                             controllers.filesystem,
                                              *controllers.weatherController);
       };
 
