@@ -134,10 +134,10 @@ void WatchFaceSJ::Refresh() {
       }
       lv_label_set_text(label_time_ampm, ampmChar);
       lv_label_set_text_fmt(label_time, "%2d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, 80);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, -60);
     } else {
       lv_label_set_text_fmt(label_time, "%02d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, 80);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, -60);
     }
 
     currentDate = std::chrono::time_point_cast<std::chrono::days>(currentDateTime.Get());
