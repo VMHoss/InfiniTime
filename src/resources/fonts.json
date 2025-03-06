@@ -14,7 +14,7 @@
    "halant" : {
       "sources": [
          {
-            "file": "fonts/Halant.otf",
+            "file": "fonts/Halant.woff",
             "symbols": "0123456789:/APMonTueWdhFriSat "
          }
       ],
