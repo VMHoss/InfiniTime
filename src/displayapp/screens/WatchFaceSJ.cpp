@@ -132,7 +132,7 @@ void WatchFaceSJ::Refresh() {
       }
       lv_label_set_text(label_time_ampm, ampmChar);
       lv_label_set_text_fmt(label_time, "%2d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, -65);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, -65);
     } else {
       lv_label_set_text_fmt(label_time, "%02d:%02d", hour, minute);
       lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, -65);
