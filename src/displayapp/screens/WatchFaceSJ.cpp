@@ -73,7 +73,7 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
 
   label_time_ampm = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(label_time_ampm, "");
-  lv_obj_align(label_time_ampm, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -80, -55);
+  lv_obj_align(label_time_ampm, lv_scr_act(), LV_ALIGN_IN_LEFT_TOP, 5, 0);
 
   heartbeatIcon = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(heartbeatIcon, Symbols::heartBeat);
