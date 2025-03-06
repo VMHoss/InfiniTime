@@ -36,13 +36,11 @@ namespace Pinetime {
                          Controllers::Settings& settingsController,
                          Controllers::HeartRateController& heartRateController,
                          Controllers::MotionController& motionController,
-                         Controllers::FS& fs,
                          Controllers::SimpleWeatherService& weather);
         ~WatchFaceSJ() override;
 
         void Refresh() override;
         
-        static bool IsAvailable(Pinetime::Controllers::FS& filesystem);
 
       private:
         uint8_t displayedHour = -1;

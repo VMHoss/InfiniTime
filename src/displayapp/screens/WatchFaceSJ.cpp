@@ -24,7 +24,6 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
                          Controllers::Settings& settingsController,
                          Controllers::HeartRateController& heartRateController,
                          Controllers::MotionController& motionController,
-                         Controllers::FS& filesystem,
                          Controllers::SimpleWeatherService& weatherService)
   : currentDateTime {{}},
     dateTimeController {dateTimeController},
