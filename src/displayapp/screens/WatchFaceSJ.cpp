@@ -71,11 +71,9 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
   lv_obj_set_style_local_text_font(label_time, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, &jetbrains_mono_extrabold_compressed);
   lv_obj_set_style_local_text_color(label_time, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x28ACF0));
 
-  lv_obj_align_origo(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, 80);
-
   label_time_ampm = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(label_time_ampm, "");
-  lv_obj_align(label_time_ampm, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -30, -55);
+  lv_obj_align(label_time_ampm, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -50, -55);
 
   heartbeatIcon = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(heartbeatIcon, Symbols::heartBeat);
@@ -134,10 +132,10 @@ void WatchFaceSJ::Refresh() {
       }
       lv_label_set_text(label_time_ampm, ampmChar);
       lv_label_set_text_fmt(label_time, "%2d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, -60);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, -65);
     } else {
       lv_label_set_text_fmt(label_time, "%02d:%02d", hour, minute);
-      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, -60);
+      lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_CENTER, 0, -65);
     }
 
     currentDate = std::chrono::time_point_cast<std::chrono::days>(currentDateTime.Get());
