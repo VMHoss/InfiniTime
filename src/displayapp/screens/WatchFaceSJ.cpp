@@ -66,15 +66,6 @@ WatchFaceSJ::WatchFaceSJ(Controllers::DateTime& dateTimeController,
   lv_label_set_text_static(label_time_ampm, "");
   lv_obj_align(label_time_ampm, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 5, 0);
 
-  heartbeatIcon = lv_label_create(lv_scr_act(), nullptr);
-  lv_label_set_text_static(heartbeatIcon, Symbols::heartBeat);
-  lv_obj_set_style_local_text_color(heartbeatIcon, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x28ACF0));
-  lv_obj_align(heartbeatIcon, lv_scr_act(), LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
-
-  heartbeatValue = lv_label_create(lv_scr_act(), nullptr);
-  lv_obj_set_style_local_text_color(heartbeatValue, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x28ACF0));
-  lv_label_set_text_static(heartbeatValue, "");
-  lv_obj_align(heartbeatValue, heartbeatIcon, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
 
   stepValue = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_set_style_local_text_color(stepValue, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x28ACF0));
@@ -156,9 +147,9 @@ void WatchFaceSJ::Refresh() {
   heartbeatRunning = heartRateController.State() != Controllers::HeartRateController::States::Stopped;
   if (heartbeat.IsUpdated() || heartbeatRunning.IsUpdated()) {
     if (heartbeatRunning.Get()) {
-      lv_label_set_text_fmt(heartbeatValue, "[L_HR]#ee3311 %d bpm#", heartbeat.Get());
+      lv_label_set_text_fmt(heartbeatValue, "[L_HR] %d bpm#", heartbeat.Get());
     } else {
-      lv_label_set_text_static(heartbeatValue, "[L_HR]#ee3311 ---#");
+      lv_label_set_text_static(heartbeatValue, "[L_HR] ---#");
     }
   }
   stepCount = motionController.NbSteps();
